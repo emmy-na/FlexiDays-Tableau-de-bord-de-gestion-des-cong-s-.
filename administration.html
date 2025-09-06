@@ -448,6 +448,35 @@ body {
   box-shadow: 5px 10px 10px rgba(128, 128, 128, 0.678);
   border: 1px solid rgba(169, 169, 169, 0.477);
 }
+    .social-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+   opacity: 0.7;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 </style>
 </head>
 <body>
@@ -735,10 +764,14 @@ body {
 </div>
 
 <footer class="footer-custom">
-    <div>
-        <h6>Réseaux sociaux</h6>
-        <p>Facebook, LinkedIn, Instagram, GitHub</p>
-    </div>
+<div class="social-section">
+  <h6 class="social-title">Retrouvez-nous sur les réseaux</h6>
+  <nav class="social-icons">
+    <a href="#"><img src="./logo facebook.jpg" alt="Facebook"></a>
+    <a href="#"><img src="./logo instagram.jpg" alt="Instagram"></a>
+    <a href="#"><img src="./logo linkdin.webp" alt="LinkedIn"></a>
+  </nav>
+</div>
     <div>
         <h6>Service RH</h6>
         <p>+33 1 23 45 67 89<br>rh@flexidays.com<br>Lun - Ven : 9h - 17h</p>
@@ -757,4 +790,5 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
