@@ -1,451 +1,312 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mes congés - FlexiDays</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<style>
-:root {
-    --primary-color: #015991;
-    --accent-color: #6fbef7;
-    --light-bg: rgba(111, 190, 247, 0.053);
-    --accent-bg: rgba(111, 190, 247, 0.279);
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexiDays - Dashboard RH</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #015991;
+            --accent-color: #6fbef7;
+            --light-bg: rgba(111, 190, 247, 0.053);
+            --accent-bg: rgba(111, 190, 247, 0.279);
+        }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background: #f8f9fa;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f8f9fa;
+        }
 
-/* Navbar - Unified */
-.navbar-custom {
-    background-color: var(--primary-color);
-    padding: 0.75rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    color: white;
-}
+        .navbar-custom {
+            background-color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            color: white;
+        }
 
-.navbar-brand-custom img {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    margin-right: 0.5rem;
-}
+        .navbar-brand-custom img {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            margin-right: 0.5rem;
+        }
 
-.navbar-links {
-    display: flex;
-    gap: 1.5rem;
-}
+        .navbar-links {
+            display: flex;
+            gap: 1.5rem;
+        }
 
-.navbar-links a {
-    color: #dde4eb;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+        .navbar-links a {
+            color: #dde4eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-.navbar-links a:hover {
-    color: #fff;
-}
+        .navbar-links a:hover {
+            color: #fff;
+        }
 
-.profile-section {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 25px;
-    height: 20px;
-    cursor: pointer;
-}
+        .profile-section img {
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
 
-.hamburger span {
-    display: block;
-    height: 3px;
-    background-color: white;
-    border-radius: 2px;
-}
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 20px;
+            cursor: pointer;
+        }
 
-.menu-toggle {
-    display: none;
-}
+        .hamburger span {
+            display: block;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
 
-.profile-mobile {
-    display: none;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    color: #dde4eb;
-}
+        .menu-toggle {
+            display: none;
+        }
 
-.profile-mobile img {
-    border-radius: 50%;
-}
+        .container-fluid {
+            width: 80%;
+        }
 
-/* Main container - Unified */
-.container-fluid {
-    width: 80%;
-}
+        .profile-mobile {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: #dde4eb;
+            border-radius: 50%;
+        }
 
-/* Welcome card - Unified */
-.welcome-card {
-    background: linear-gradient(135deg, var(--accent-bg), var(--light-bg));
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-}
+        .profile-mobile img {
+            border-radius: 50%;
+        }
 
-/* Shadow utility - Unified */
-.shadowdiv {
-    border-radius: 10px;
-    box-shadow: 5px 10px 10px rgba(128, 128, 128, 0.678);
-    border: 1px solid rgba(169, 169, 169, 0.477);
-}
+        .welcome-card {
+            background: linear-gradient(135deg, var(--accent-bg), var(--light-bg));
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
 
-/* Cards grid layout */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
+        .notification-carousel {
+            background: white;
+            border-radius: 12px;
+            max-height: 180px;
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            border: 1px solid darkgray;
+        }
 
-.leave-card {
-    background-color: var(--light-bg);
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border-left: 4px solid var(--accent-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
 
-.leave-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
+        .stat-card {
+            background-color: var(--light-bg);
+            border-radius: 12px;
+            flex: 1 1 300px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
 
-/* Status badges - Enhanced */
-.status-badge {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
 
-.status-en-attente { 
-    background-color: #ffc107; 
-}
-.status-approuve { 
-    background-color: #28a745; 
-}
-.status-refuse { 
-    background-color: #dc3545; 
-}
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+        }
 
-/* Card content styling */
-.leave-card h5 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
+        .btn-main {
+            background-color: #28a745;
+            border-color: #1a5c29;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin: 0.25rem;
+        }
 
-.leave-card p {
-    margin-bottom: 0.5rem;
-    color: #666;
-    font-size: 0.9rem;
-}
+        .btn-main:hover {
+            background-color: #014a73;
+        }
 
-.leave-card p strong {
-    color: var(--primary-color);
-    font-weight: 600;
-}
+        .btn-outline-main {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 0.75em 3rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0.25rem;
+        }
 
-.refusal-reason {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
-}
+        .btn-outline-main:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
 
-/* Card buttons - Unified */
-.card-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
+        .footer-custom {
+            background-color: var(--primary-color);
+            color: #dde4eb;
+            padding: 2rem;
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2%;
+        }
 
-.card-buttons button {
-    flex: 1;
-    min-height: 38px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+        .footer-custom > :first-child,
+        .footer-custom > :nth-child(2),
+        .footer-custom > :nth-child(3) {
+            grid-column: span 1;
+        }
 
-.btn-main {
-    background-color: #28a745;
-    border-color: #1a5c29;   
-    color: white; 
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-}
+        .footer-custom > :last-child {
+            grid-column: span 3;
+        }
 
-.btn-main:hover {
-    background-color: #014a73;
-}
+        .footer-custom a {
+            color: #dde4eb;
+            text-decoration: none;
+        }
 
-.btn-outline-main {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    background: transparent;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-}
+        .footer-custom a:hover {
+            color: #fff;
+        }
 
-.btn-outline-main:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
+        @media (max-width: 768px) {
+            .profile-mobile {
+                display: flex;
+            }
 
-.btn:hover {
-    background-color: var(--primary-color);
-    color: white !important;
-    border-color: var(--primary-color);
-}
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                background-color: var(--primary-color);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                padding: 1rem 2rem;
+                border-radius: 0 0 8px 8px;
+                width: 200px;
+            }
 
-/* Filter section */
-.filter-section {
-    background: var(--light-bg);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
+            .menu-toggle:checked + .hamburger + .navbar-links {
+                display: flex;
+            }
 
-.filter-section h5 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
+            .hamburger {
+                display: flex;
+            }
 
-.filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
+            .profile-section {
+                display: none;
+            }
 
-.filter-btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--accent-color);
-    background: white;
-    color: var(--primary-color);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+            .stats-row {
+                flex-direction: column;
+            }
+        }
 
-.filter-btn:hover,
-.filter-btn.active {
-    background: var(--accent-color);
-    color: white;
-}
+        .shadowdiv {
+            border-radius: 10px;
+            box-shadow: 5px 10px 10px rgba(128, 128, 128, 0.678);
+            border: 1px solid rgba(169, 169, 169, 0.477);
+        }
 
-/* Footer - Unified */
-.footer-custom {
-    background-color: var(--primary-color);
-    color: #dde4eb;
-    padding: 2rem;
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2%;
-}
+        .social-section {
+            text-align: center;
+            margin: 20px 0;
+        }
 
-.footer-custom > :first-child,
-.footer-custom > :nth-child(2),
-.footer-custom > :nth-child(3) {
-    grid-column: span 1;
-}
+        .social-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
 
-.footer-custom > :last-child {
-    grid-column: span 3;
-}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
 
-.footer-custom a {
-    color: #dde4eb;
-    text-decoration: none;
-}
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0.7;
+        }
 
-.footer-custom a:hover {
-    color: #fff;
-}
-
-/* Responsive - Unified */
-@media(max-width: 768px) {
-    .profile-mobile {
-        display: flex;
-    }
-    
-    .navbar-links {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        background-color: var(--primary-color);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        padding: 1rem 2rem;
-        border-radius: 0 0 8px 8px;
-        width: 200px;
-    }
-    
-    .menu-toggle:checked + .hamburger + .navbar-links {
-        display: flex;
-    }
-    
-    .hamburger { 
-        display: flex; 
-    }
-    
-    .profile-section { 
-        display: none; 
-    }
-    
-    .container-fluid {
-        width: 95%;
-    }
-    
-    .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .filter-buttons {
-        justify-content: center;
-    }
-    
-    .card-buttons {
-        flex-direction: column;
-    }
-}
-
-.stats-summary {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: white;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
- box-shadow: 5px 5px rgba(0,0,0,0.05);
-   border-radius: 8px;
-   border: 1px solid darkgray;
-   
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-.stat-label {
-    font-size: 0.85rem;
-    color: #666;
-}
-.shadowdiv{
-  border-radius: 10px;
-  box-shadow: 5px 10px 10px rgba(128, 128, 128, 0.678);
-  border: 1px solid rgba(169, 169, 169, 0.477);
-}
-    .social-section {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.social-title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.social-icons img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-   opacity: 0.7;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-</style>
+        .social-icons img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-
-<header class="navbar-custom">
-    <div class="navbar-brand-custom d-flex align-items-center">
-        <img src="logo flexi days.jpeg" alt="FlexiDays">
-        <span>FlexiDays RH</span>
-    </div>
-
-    <input type="checkbox" id="menuToggle" class="menu-toggle">
-    <label for="menuToggle" class="hamburger"><span></span><span></span><span></span></label>
-
-    <nav class="navbar-links">
-        <a href="./DashBord.html"><i class="bi bi-grid-fill"></i> Dashboard</a>
-        <a href="./mesconge.html"><i class="bi bi-calendar-check"></i> Mes congés</a>
-        <a href="./demande.html"><i class="bi bi-plus-circle"></i> Demande de congé</a>
-        <a href="./administration.html"><i class="bi bi-gear-fill"></i> Administration</a>
-        <div class="profile-mobile">
-            <img src="profil photo.jpeg" alt="Profil" width="30" height="30">
-            <span>N.I</span>
+    <header class="navbar-custom">
+        <div class="navbar-brand-custom d-flex align-items-center">
+            <img src="logo flexi days.jpeg" alt="FlexiDays">
+            <span>FlexiDays RH</span>
         </div>
-    </nav>
 
-    <div class="profile-section">
-        <span>N.I</span>
-        <img src="profil photo.jpeg" alt="Profil" width="40" height="40">
-    </div>
-</header>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="hamburger"><span></span><span></span><span></span></label>
 
+        <nav class="navbar-links">
+            <a href="./DashBord.html"><i class="bi bi-grid-fill"></i> Dashboard</a>
+            <a href="./mesconge.html"><i class="bi bi-calendar-check"></i> Mes congés</a>
+            <a href="./demande.html"><i class="bi bi-plus-circle"></i> Demande de congé</a>
+            <a href="./administration.html"><i class="bi bi-gear-fill"></i> Administration</a>
+            <div class="profile-mobile">
+                <img src="profil photo.jpeg" alt="Profil" width="30" height="30">
+                <span>N.I</span>
+            </div>
+        </nav>
+
+        <div class="profile-section">
+            <span>N.I</span>
+            <img src="profil photo.jpeg" alt="Profil" width="40" height="40">
+        </div>
+    </header>
 <div class="container-fluid px-4 py-4">
     <div class="welcome-card shadowdiv">
         <h2><i class="bi bi-calendar-check me-2"></i>Mes congés</h2>
@@ -640,4 +501,5 @@ body {
 </body>
 
 </html>
+
 
