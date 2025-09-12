@@ -1,0 +1,663 @@
+{
+
+  "UserIfon": {
+    "users": [
+      {
+        "id": "EMP001",
+        "name": "N.I",
+        "fullName": "Imane Naciri",
+        "profileImage": "imane.jpg",
+        "department": "Informatique",
+        "employeeId": "EMP001",
+        "email": "i.naciri@flexidays.com",
+        "phone": "+212 6 12 34 56 78"
+      },
+      {
+        "id": "EMP002",
+        "name": "A.D",
+        "fullName": "Ali Drissi",
+        "profileImage": "ali.jpg",
+        "department": "RH",
+        "employeeId": "EMP002",
+        "email": "a.drissi@flexidays.com",
+        "phone": "+212 6 98 76 54 32"
+      },
+      {
+        "id": "EMP003",
+        "name": "S.K",
+        "fullName": "Sara Kamouni",
+        "profileImage": "sara.jpg",
+        "department": "Comptabilité",
+        "employeeId": "EMP003",
+        "email": "s.kamouni@flexidays.com",
+        "phone": "+212 6 11 22 33 44"
+      },
+      {
+        "id": "EMP004",
+        "name": "M.D",
+        "fullName": "Mohamed Daoudi",
+        "profileImage": "mohamed.jpg",
+        "department": "Production",
+        "employeeId": "EMP004",
+        "email": "m.daoudi@flexidays.com",
+        "phone": "+212 6 44 55 66 77"
+      },
+      {
+        "id": "EMP005",
+        "name": "J.E",
+        "fullName": "Jamila Erraouidi",
+        "profileImage": "jamila.jpg",
+        "department": "Ventes",
+        "employeeId": "EMP005",
+        "email": "j.erraouidi@flexidays.com",
+        "phone": "+212 6 88 77 66 55"
+      },
+      {
+        "id": "EMP006",
+        "name": "B.K",
+        "fullName": "Bader Khalil",
+        "profileImage": "bader.jpg",
+        "department": "Informatique",
+        "employeeId": "EMP006",
+        "email": "b.khalil@flexidays.com",
+        "phone": "+212 6 33 44 55 66"
+      },
+      {
+        "id": "EMP007",
+        "name": "L.T",
+        "fullName": "Laila E-Taher",
+        "profileImage": "laila.jpg",
+        "department": "Logistique",
+        "employeeId": "EMP007",
+        "email": "l.etaher@flexidays.com",
+        "phone": "+212 6 22 33 44 55"
+      },
+       {
+      "id": "EMP008",
+      "name": "M.D",
+      "fullName": "Mariem Dalil",
+      "profileImage": "mariem.jpg",
+      "department": "Marketing",
+      "employeeId": "EMP008",
+      "email": "m.dalil@flexidays.com",
+      "phone": "+212 6 23 45 67 89"
+    },
+    {
+      "id": "EMP009",
+      "name": "A.B",
+      "fullName": "Ahmed Benali",
+      "profileImage": "ahmed.jpg",
+      "department": "Informatique",
+      "employeeId": "EMP009",
+      "email": "a.benali@flexidays.com",
+      "phone": "+212 6 98 76 54 32"
+    },
+    {
+      "id": "RH001",
+      "name": "A.E",
+      "fullName": "Asmae Essam",
+      "profileImage": "asmae.jpg",
+      "department": "Ressources Humaines",
+      "employeeId": "EMP010",
+      "email": "a.masekh@flexidays.com",
+      "phone": "+212 6 44 55 66 77"
+    },
+    {
+      "id": "RH002",
+      "name": "Z.M",
+      "fullName": "Zakaria Masekh",
+      "profileImage": "zakaria.jpg",
+      "department": "Logistique",
+      "employeeId": "EMP011",
+      "email": "z.essam@flexidays.com",
+      "phone": "+212 6 11 22 33 44"
+    }
+    ],
+    "leaveBalance": {
+      "EMP001": { "totalDays": 21 },
+      "EMP002": { "totalDays": 21 },
+      "EMP003": { "totalDays": 21 },
+      "EMP004": { "totalDays": 21},
+      "EMP005": { "totalDays": 21},
+      "EMP006": { "totalDays": 31},
+      "EMP007": { "totalDays": 21 },
+      "EMP008": { "totalDays": 31},
+      "EMP009": {"totalDays": 21}
+    }
+  },
+
+  "DashboardPage": {
+    "notifications": [
+      {
+        "id": 1,
+        "type": "warning",
+        "title": "Fermeture exceptionnelle :",
+        "message": "L'entreprise sera fermée le vendredi 15 décembre pour maintenance technique.",
+        "color": "#dc3545"
+      },
+      {
+        "id": 2,
+        "type": "info",
+        "title": "Nouvelle politique :",
+        "message": "Les horaires d'ouverture changent à partir du 1er janvier.",
+        "color": "#ffc107"
+      },
+      {
+        "id": 3,
+        "type": "invite",
+        "title": "Événement d'équipe :",
+        "message": "Rendez-vous le 5 février pour la réunion annuelle.",
+        "color": "#28a745"
+      }
+    ],
+      "upcomingLeaves": [
+               {
+    "type": "Aïd el-Fitr",
+    "dates": "10-11 avril 2024"
+  },
+  {
+          "type": "Pont de mai",
+          "dates": "2-3 mai 2024"
+        },
+         {
+    "type": "Fête du Travail",
+    "dates": "1er mai 2024"
+  }
+      ]
+    },
+
+  "MyCongesPage": {
+    "leaveRequests": {
+      "EMP001": [
+        {
+          "id": 1,
+          "type": "Congés payés",
+          "startDate": "2025-07-15",
+          "endDate": "2025-07-29",
+          "duration": 15,
+          "status": "rejected",
+          "reason": "Vacances familiales",
+          "submittedDate": "2025-06-15",
+          "title": "Congés d'été",
+          "replancement": "Laila E-Taher",
+          "comment": "Pas de disponibilité sur ce créneau"
+        },
+        {
+          "id": 2,
+          "type": "Congés payés",
+          "startDate": "2025-05-02",
+          "endDate": "2025-05-03",
+          "duration": 2,
+          "status": "pending",
+          "reason": "Week-end prolongé",
+          "submittedDate": "2025-04-20",
+          "title": "Pont de mai",
+          "replancement": "Jamila Erraouidi",
+          "comment": ""
+        },
+        {
+          "id": 3,
+          "type": "RTT",
+          "startDate": "2025-06-10",
+          "endDate": "2025-06-10",
+          "duration": 1,
+          "status": "approved",
+          "reason": "Récupération heures supplémentaires",
+          "submittedDate": "2025-06-01",
+          "title": "RTT",
+          "replancement": "Ahmed Benali",
+          "comment": "Rappel envoyé au manager"
+        },
+        {
+          "id": 4,
+          "type": "Formation",
+          "startDate": "2025-08-05",
+          "endDate": "2025-08-07",
+          "duration": 3,
+          "status": "approved",
+          "reason": "Certification technique",
+          "submittedDate": "2025-07-20",
+          "title": "Formation professionnelle",
+          "replancement": "Sarah Kamouni",
+          "comment": ""
+        },
+        {
+          "id": 5,
+          "type": "Congé parental",
+          "startDate": "2025-09-01",
+          "endDate": "2025-09-15",
+          "duration": 15,
+          "status": "pending",
+          "reason": "Naissance",
+          "submittedDate": "2025-08-15",
+          "title": "Congé parental",
+          "replancement": "Bader Khalil",
+          "comment": "À valider par RH"
+        },
+        {
+          "id": 6,
+          "type": "Congé maladie",
+          "startDate": "2025-08-05",
+          "endDate": "2025-08-07",
+          "duration": 3,
+          "status": "approved",
+          "reason": "Maladie",
+          "submittedDate": "2025-08-01",
+          "title": "Congé maladie",
+          "replancement": "Mariem Dalil",
+          "comment": ""
+        },
+        {
+          "id": 7,
+          "type": "Formation",
+          "startDate": "2025-10-05",
+          "endDate": "2025-10-07",
+          "duration": 3,
+          "status": "pending",
+          "reason": "Formation interne",
+          "submittedDate": "2025-09-20",
+          "title": "Formation interne",
+          "replancement": "Laila E-Taher",
+          "comment": "Vérifier planning projet"
+        },
+        {
+          "id": 8,
+          "type": "Congés payés",
+          "startDate": "2025-11-01",
+          "endDate": "2025-11-03",
+          "duration": 3,
+          "status": "draft",
+          "reason": "Vacances planifiées",
+          "submittedDate": "2025-10-25",
+          "title": "Mini congés",
+          "replancement": "Ahmed Benali",
+          "comment": ""
+        },
+        {
+          "id": 9,
+          "type": "RTT",
+          "startDate": "2025-12-10",
+          "endDate": "2025-12-10",
+          "duration": 1,
+          "status": "draft",
+          "reason": "Récupération",
+          "submittedDate": "2025-12-01",
+          "title": "RTT draft",
+          "replancement": "Laila E-Taher",
+          "comment": ""
+        }
+      ],
+      "EMP002": [
+        {
+          "id": 1,
+          "type": "RTT",
+          "startDate": "2025-06-10",
+          "endDate": "2025-06-10",
+          "duration": 1,
+          "status": "approved",
+          "reason": "Récupération heures supplémentaires",
+          "submittedDate": "2025-06-01",
+          "title": "RTT",
+          "replancement": "Jamila Erraouidi",
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "type": "Congé parental",
+          "startDate": "2025-08-01",
+          "endDate": "2025-08-15",
+          "duration": 15,
+          "status": "pending",
+          "reason": "Naissance",
+          "submittedDate": "2025-07-10",
+          "title": "Congé parental",
+          "rejectionReason": "Non validé par RH",
+          "replancement": "Ahmed Benali",
+          "comment": "RH demande un document supplémentaire"
+        },
+        {
+          "id": 3,
+          "type": "Congé maladie",
+          "startDate": "2025-03-10",
+          "endDate": "2025-03-12",
+          "duration": 3,
+          "status": "pending",
+          "reason": "Grippe",
+          "submittedDate": "2025-03-09",
+          "title": "Congé maladie",
+          "rejectionReason": "Certificat médical manquant",
+          "replancement": "Sarah Kamouni",
+          "comment": ""
+        },
+        {
+          "id": 4,
+          "type": "Formation",
+          "startDate": "2025-05-05",
+          "endDate": "2025-05-07",
+          "duration": 3,
+          "status": "rejected",
+          "reason": "Formation interne",
+          "submittedDate": "2025-04-20",
+          "title": "Formation interne",
+          "replancement": "Bader Khalil",
+          "comment": "Planification confirmée"
+        },
+        {
+          "id": 5,
+          "type": "Congé maladie",
+          "startDate": "2025-12-01",
+          "endDate": "2025-12-03",
+          "duration": 3,
+          "status": "draft",
+          "reason": "Grippe éventuelle",
+          "submittedDate": "2025-11-28",
+          "title": "Congé draft",
+          "replancement": "Ahmed Benali",
+          "comment": ""
+        },
+        {
+          "id": 6,
+          "type": "Congés payés",
+          "startDate": "2025-12-20",
+          "endDate": "2025-12-23",
+          "duration": 4,
+          "status": "draft",
+          "reason": "Vacances de fin d'année",
+          "submittedDate": "2025-12-15",
+          "title": "Draft congés",
+          "replancement": "Jamila Erraouidi",
+          "comment": ""
+        }
+      ],
+      "EMP003": [
+        {
+          "id": 1,
+          "type": "Formation",
+          "startDate": "2025-09-05",
+          "endDate": "2025-09-07",
+          "duration": 3,
+          "status": "approved",
+          "reason": "Certification technique",
+          "submittedDate": "2025-08-20",
+          "title": "Formation professionnelle",
+          "replancement": "Mariem Dalil",
+          "comment": "Salle de formation réservée"
+        },
+        {
+          "id": 2,
+          "type": "Congés payés",
+          "startDate": "2025-07-01",
+          "endDate": "2025-07-10",
+          "duration": 10,
+          "status": "rejected",
+          "reason": "Vacances d'été",
+          "submittedDate": "2025-06-10",
+          "title": "Vacances d'été",
+          "replancement": "Laila E-Taher",
+          "comment": "Projet critique à ce moment"
+        },
+        {
+          "id": 3,
+          "type": "RTT",
+          "startDate": "2025-06-20",
+          "endDate": "2025-06-20",
+          "duration": 1,
+          "status": "approved",
+          "reason": "Récupération heures supplémentaires",
+          "submittedDate": "2025-06-15",
+          "title": "RTT",
+          "replancement": "Jamila Erraouidi",
+          "comment": ""
+        },
+        {
+          "id": 4,
+          "type": "Congé parental",
+          "startDate": "2025-08-01",
+          "endDate": "2025-08-15",
+          "duration": 15,
+          "status": "pending",
+          "reason": "Naissance",
+          "submittedDate": "2025-07-10",
+          "title": "Congé parental",
+          "replancement": "Ahmed Benali",
+          "comment": "Attente validation manager"
+        },
+        {
+          "id": 5,
+          "type": "Congé maladie",
+          "startDate": "2025-04-10",
+          "endDate": "2025-04-12",
+          "duration": 3,
+          "status": "rejected",
+          "reason": "Grippe",
+          "submittedDate": "2025-04-09",
+          "title": "Congé maladie",
+          "rejectionReason": "Certificat médical manquant",
+          "replancement": "Sarah Kamouni",
+          "comment": ""
+        },
+        {
+          "id": 6,
+          "type": "Formation",
+          "startDate": "2025-11-10",
+          "endDate": "2025-11-12",
+          "duration": 3,
+          "status": "draft",
+          "reason": "Formation prévue",
+          "submittedDate": "2025-11-01",
+          "title": "Draft formation",
+          "replancement": "Mariem Dalil",
+          "comment": ""
+        }
+      ],  
+   "EMP004": [
+        {
+          "id": 1,
+          "type": "Congé maladie",
+          "startDate": "2025-04-10",
+          "endDate": "2025-04-12",
+          "duration": 3,
+          "status": "rejected",
+          "reason": "Grippe",
+          "submittedDate": "2025-04-09",
+          "title": "Congé maladie",
+          "rejectionReason": "Certificat médical manquant",
+          "replancement": "Bader Khalil",
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "type": "RTT",
+          "startDate": "2025-05-20",
+          "endDate": "2025-05-20",
+          "duration": 1,
+          "status": "approved",
+          "reason": "Récupération heures supplémentaires",
+          "submittedDate": "2025-05-15",
+          "title": "RTT",
+          "replancement": "Mariem Dalil",
+          "comment": "Validé par RH"
+        },
+        {
+          "id": 3,
+          "type": "Formation",
+          "startDate": "2025-06-05",
+          "endDate": "2025-06-07",
+          "duration": 3,
+          "status": "approved",
+          "reason": "Certification interne",
+          "submittedDate": "2025-05-25",
+          "title": "Formation interne",
+          "replancement": "Sarah Kamouni",
+          "comment": ""
+        },
+        {
+          "id": 4,
+          "type": "Congés payés",
+          "startDate": "2025-12-01",
+          "endDate": "2025-12-03",
+          "duration": 3,
+          "status": "draft",
+          "reason": "Vacances planifiées",
+          "submittedDate": "2025-11-25",
+          "title": "Congés draft",
+          "replancement": "Bader Khalil",
+          "comment": ""
+        }
+      ],
+      "EMP005": [
+        {
+          "id": 1,
+          "type": "Formation",
+          "startDate": "2025-09-20",
+          "endDate": "2025-09-22",
+          "duration": 3,
+          "status": "pending",
+          "reason": "Formation commerciale",
+          "submittedDate": "2025-09-18",
+          "title": "Formation commerciale",
+          "replancement": "Ahmed Benali",
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "type": "Congé parental",
+          "startDate": "2025-10-05",
+          "endDate": "2025-10-15",
+          "duration": 11,
+          "status": "draft",
+          "reason": "Prévision personnelle",
+          "submittedDate": "2025-09-28",
+          "title": "Congé draft",
+          "replancement": "Mariem Dalil",
+          "comment": ""
+        }
+      ],
+      "EMP006": [
+        {
+          "id": 1,
+          "type": "Congés payés",
+          "startDate": "2025-09-25",
+          "endDate": "2025-10-06",
+          "duration": 12,
+          "status": "pending",
+          "reason": "Vacances familiales",
+          "submittedDate": "2025-09-23",
+          "title": "Vacances familiales",
+          "replancement": "Mariem Dalil",
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "type": "RTT",
+          "startDate": "2025-11-12",
+          "endDate": "2025-11-12",
+          "duration": 1,
+          "status": "draft",
+          "reason": "Récupération",
+          "submittedDate": "2025-11-10",
+          "title": "RTT draft",
+          "replancement": "Ahmed Benali",
+          "comment": ""
+        }
+      ],
+      "EMP007": [
+        {
+          "id": 1,
+          "type": "Congés payés",
+          "startDate": "2025-09-30",
+          "endDate": "2025-10-04",
+          "duration": 5,
+          "status": "approved",
+          "reason": "Week-end prolongé",
+          "submittedDate": "2025-09-11",
+          "title": "Week-end prolongé",
+          "replancement": "",
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "type": "Formation",
+          "startDate": "2025-12-01",
+          "endDate": "2025-12-03",
+          "duration": 3,
+          "status": "draft",
+          "reason": "Formation interne planifiée",
+          "submittedDate": "2025-11-25",
+          "title": "Formation draft",
+          "replancement": "Sarah Kamouni",
+          "comment": ""
+        }
+      ],
+      "EMP008": [
+        {
+          "id": 1,
+          "type": "Congé maladie",
+          "startDate": "2025-09-10",
+          "endDate": "2025-09-15",
+          "duration": 6,
+          "status": "urgent",
+          "reason": "Intervention chirurgicale programmée",
+          "submittedDate": "2025-09-08",
+          "title": "Congé maladie",
+          "replancement": "",
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "type": "RTT",
+          "startDate": "2025-12-20",
+          "endDate": "2025-12-20",
+          "duration": 1,
+          "status": "draft",
+          "reason": "Récupération",
+          "submittedDate": "2025-12-15",
+          "title": "RTT draft",
+          "replancement": "Jamila Erraouidi",
+          "comment": ""
+        }
+      ],
+      "EMP009": [
+        {
+          "id": 1,
+          "type": "Congé parental",
+          "startDate": "2025-10-01",
+          "endDate": "2025-10-15",
+          "duration": 15,
+          "status": "urgent",
+          "reason": "Naissance",
+          "submittedDate": "2025-09-07",
+          "title": "Congé parental",
+          "replancement": "",
+          "comment": ""
+        },
+        {
+          "id": 2,
+          "type": "Congés payés",
+          "startDate": "2025-11-10",
+          "endDate": "2025-11-12",
+          "duration": 3,
+          "status": "draft",
+          "reason": "Vacances planifiées",
+          "submittedDate": "2025-11-01",
+          "title": "Congés draft",
+          "replancement": "Mariem Dalil",
+          "comment": ""
+        },
+        {
+          "id": 3,
+          "type": "Formation",
+          "startDate": "2025-12-05",
+          "endDate": "2025-12-07",
+          "duration": 3,
+          "status": "draft",
+          "reason": "Formation interne",
+          "submittedDate": "2025-11-28",
+          "title": "Formation draft",
+          "replancement": "Ahmed Benali",
+          "comment": ""
+        }
+      ]
+  }
+  }
+}
