@@ -1,318 +1,49 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlexiDays - Dashboard RH</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #015991;
-            --accent-color: #6fbef7;
-            --light-bg: rgba(111, 190, 247, 0.053);
-            --accent-bg: rgba(111, 190, 247, 0.279);
-        }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demande de congé - FlexiDays</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="./FlexiDays css/demande.css">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background: #f8f9fa;
-        }
+  </head>
+  <body>
+   <header class="navbar-custom">
+      <div class="navbar-brand-custom d-flex align-items-center">
+        <img src="./images/logo flexi days.jpeg" alt="FlexiDays" />
+        <span>FlexiDays RH</span>
+      </div>
 
-        .navbar-custom {
-            background-color: var(--primary-color);
-            padding: 0.75rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            color: white;
-        }
+      <input type="checkbox" id="menuToggle" class="menu-toggle" />
+      <label for="menuToggle" class="hamburger"
+        ><span></span><span></span><span></span
+      ></label>
 
-        .navbar-brand-custom img {
-            border-radius: 50%;
-            height: 50px;
-            width: 50px;
-            margin-right: 0.5rem;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .navbar-links a {
-            color: #dde4eb;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-links a:hover {
-            color: #fff;
-        }
-
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .profile-section img {
-            border-radius: 50%;
-            border: 3px solid #fff;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 25px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            display: block;
-            height: 3px;
-            background-color: white;
-            border-radius: 2px;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-        .container-fluid {
-            width: 80%;
-        }
-
-        .profile-mobile {
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: #dde4eb;
-            border-radius: 50%;
-        }
-
-        .profile-mobile img {
-            border-radius: 50%;
-        }
-
-        .welcome-card {
-            background: linear-gradient(135deg, var(--accent-bg), var(--light-bg));
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .notification-carousel {
-            background: white;
-            border-radius: 12px;
-            max-height: 180px;
-            box-shadow: 5px 5px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            border: 1px solid darkgray;
-        }
-
-        .stats-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background-color: var(--light-bg);
-            border-radius: 12px;
-            flex: 1 1 300px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .btn-main {
-            background-color: #28a745;
-            border-color: #1a5c29;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            margin: 0.25rem;
-        }
-
-        .btn-main:hover {
-            background-color: #014a73;
-        }
-
-        .btn-outline-main {
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            background: transparent;
-            padding: 0.75em 3rem;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 0.25rem;
-        }
-
-        .btn-outline-main:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .footer-custom {
-            background-color: var(--primary-color);
-            color: #dde4eb;
-            padding: 2rem;
-            margin-top: 3rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2%;
-        }
-
-        .footer-custom > :first-child,
-        .footer-custom > :nth-child(2),
-        .footer-custom > :nth-child(3) {
-            grid-column: span 1;
-        }
-
-        .footer-custom > :last-child {
-            grid-column: span 3;
-        }
-
-        .footer-custom a {
-            color: #dde4eb;
-            text-decoration: none;
-        }
-
-        .footer-custom a:hover {
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .profile-mobile {
-                display: flex;
-            }
-
-            .navbar-links {
-                display: none;
-                flex-direction: column;
-                gap: 1rem;
-                background-color: var(--primary-color);
-                position: absolute;
-                top: 60px;
-                right: 0;
-                padding: 1rem 2rem;
-                border-radius: 0 0 8px 8px;
-                width: 200px;
-            }
-
-            .menu-toggle:checked + .hamburger + .navbar-links {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .profile-section {
-                display: none;
-            }
-
-            .stats-row {
-                flex-direction: column;
-            }
-        }
-
-        .shadowdiv {
-            border-radius: 10px;
-            box-shadow: 5px 10px 10px rgba(128, 128, 128, 0.678);
-            border: 1px solid rgba(169, 169, 169, 0.477);
-        }
-
-        .social-section {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .social-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0.7;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-    </style>
-</head>
-<body>
-    <header class="navbar-custom">
-        <div class="navbar-brand-custom d-flex align-items-center">
-            <img src="logo flexi days.jpeg" alt="FlexiDays">
-            <span>FlexiDays RH</span>
+      <nav class="navbar-links">
+        <a href="./DashBord.html"><i class="bi bi-grid-fill"></i> Dashboard</a>
+        <a href="./mesconge.html"><i class="bi bi-calendar-check"></i> Mes congés</a>
+        <a href="./demande.html"><i class="bi bi-plus-circle"></i> Demande de congé</a>
+        <a href="./administration.html"
+          ><i class="bi bi-gear-fill"></i> Administration</a
+        >
+        <div class="profile-mobile">
+          <img src="" alt="Profil" width="30" height="30" />
+          <span></span>
         </div>
+      </nav>
 
-        <input type="checkbox" id="menuToggle" class="menu-toggle">
-        <label for="menuToggle" class="hamburger"><span></span><span></span><span></span></label>
-
-        <nav class="navbar-links">
-            <a href="./DashBord.html"><i class="bi bi-grid-fill"></i> Dashboard</a>
-            <a href="./mesconge.html"><i class="bi bi-calendar-check"></i> Mes congés</a>
-            <a href="./demande.html"><i class="bi bi-plus-circle"></i> Demande de congé</a>
-            <a href="./administration.html"><i class="bi bi-gear-fill"></i> Administration</a>
-            <div class="profile-mobile">
-                <img src="profil photo.jpeg" alt="Profil" width="30" height="30">
-                <span>N.I</span>
-            </div>
-        </nav>
-
-        <div class="profile-section">
-            <span>N.I</span>
-            <img src="profil photo.jpeg" alt="Profil" width="40" height="40">
-        </div>
+      <div class="profile-section">
+        <span></span>
+        <img src="" alt="Profil" width="40" height="40" />
+      </div>
     </header>
 
     <div class="container-fluid px-4 py-4">
       <div class="welcome-card shadowdiv">
         <h3 class="bi bi-plus-circle me-2" > Nouvelle demande de congé</h3>
-        <p>
-          Remplissez le formulaire ci-dessous pour soumettre votre demande de
+        <p>Bonjour, <span id="welcomeName"></span> ! Remplissez le formulaire ci-dessous pour soumettre votre demande de
           congé.
         </p>
       </div>
@@ -412,37 +143,55 @@
     <i class="bi bi-save"></i> Enregistrer comme brouillon
   </button>
 </div>
-
         </form>
+      
+
       </div>
+<!-- Carousel wrapper -->
+<div id="formsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+  <div class="carousel-inner">
+    
+    <!-- First slide -->
+    <div class="carousel-item active">
       <div class="form-container shadowdiv">
-        <h4>Mes dernieres demandes</h4>
-        <div class="lastRequests">
-          <section class="lastRequest">
-           <div> <p>conge paye<br>
-            <strong>Du:</strong> 15/03/2025 <strong>Au:</strong>19/03/2025 </p></div>
-              <p class="status-badge status-en-attente">En attente</p>
-          </section>
-          <section class="lastRequest">
-                <p>conge personnel<br><strong>Du:</strong>08/02/2025 <strong>Au:</strong> 08/02/2025</p>
-          <p class="status-badge status-approuve">Approuve</p>
-          </section>
-
-
-        </div>
-        <div>
-
+        <h4>Brouillon Enregistres</h4>
+        <div id="draftRequests" class="lastRequests">
+          <!-- Your content here -->
         </div>
       </div>
     </div>
+    
+    <!-- Second slide -->
+    <div class="carousel-item">
+      <div class="form-container shadowdiv">
+        <h4>Mes dernieres demandes</h4>
+        <div class="lastRequests">
+          <!-- Your content here -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Carousel controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#formsCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#formsCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
 
 <footer class="footer-custom">
 <div class="social-section">
   <h6 class="social-title">Retrouvez-nous sur les réseaux</h6>
   <nav class="social-icons">
-    <a href="#"><img src="./logo facebook.jpg" alt="Facebook"></a>
-    <a href="#"><img src="./logo instagram.jpg" alt="Instagram"></a>
-    <a href="#"><img src="./logo linkdin.webp" alt="LinkedIn"></a>
+    <a href="#"><img src="./images/logo facebook.jpg" alt="Facebook"></a>
+    <a href="#"><img src="./images/logo instagram.jpg" alt="Instagram"></a>
+    <a href="#"><img src="./images/logo linkdin.webp" alt="LinkedIn"></a>
   </nav>
 </div>
 <div>
@@ -464,9 +213,9 @@
     </div>
 </footer>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./flexiDays js/shared.js"></script>
+<script src="./flexiDays js/demande.js"></script>
 </body>
-
 </html>
-
-
