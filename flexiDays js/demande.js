@@ -1,10 +1,10 @@
-// demande.js - version finale corrigée
 
-// --- Global State ---
+
+
 let SERVER_LEAVE_REQUESTS = {};
 let currentUserId = null;
 
-// --- Maps ---
+
 const typeMap = {
   "Congés payés": "conges-payes",
   "RTT": "rtt",
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await initDemandePage();
 });
 
-// --- Load JSON Data ---
+
 async function loadServerData() {
   try {
     const resp = await axios.get("http://localhost:4000/MyCongesPage");
@@ -34,7 +34,7 @@ async function loadServerData() {
   }
 }
 
-// --- Initialize Page ---
+
 async function initDemandePage() {
   const editRequest = shared.getEditRequest?.();
   if (editRequest) fillForm(editRequest);
@@ -45,14 +45,14 @@ async function initDemandePage() {
   initializeFormButtons(currentUserId);
 }
 
-// --- Date Formatting ---
+
 function formatDate(d) {
   if (!d) return "";
   const dt = new Date(d);
   return isNaN(dt) ? d : dt.toLocaleDateString();
 }
 
-// --- Calculate Duration ---
+
 function calculateDuration(start, end) {
   if (!start || !end) return 0;
   const d1 = new Date(start);
@@ -61,13 +61,13 @@ function calculateDuration(start, end) {
   return Math.round((d2 - d1) / (1000 * 60 * 60 * 24)) + 1;
 }
 
-// --- Retrieve Requests for Current User ---
+
 function getLeaveFlatRequests(userId) {
   if (!userId) return [];
   return SERVER_LEAVE_REQUESTS[userId] || [];
 }
 
-// --- Build Leave Request ---
+
 function buildLeaveRequest(data, status = "draft") {
   return {
     id: data.id || Date.now(),
@@ -84,7 +84,7 @@ function buildLeaveRequest(data, status = "draft") {
   };
 }
 
-// --- Save Request to Server ---
+
 async function saveLeaveRequestToServer(request) {
   const userId = currentUserId;
   const url = "http://localhost:4000/MyCongesPage";
@@ -106,7 +106,7 @@ async function saveLeaveRequestToServer(request) {
   }
 }
 
-// --- Get Form Data ---
+
 function getFormData() {
   const typeSelect = document.getElementById("typeConge");
   const selectedTypeText = typeSelect?.options[typeSelect.selectedIndex]?.text || "";
@@ -125,7 +125,7 @@ function getFormData() {
   };
 }
 
-// --- Validate Form ---
+
 function validateForm(data) {
   const required = ['startDate','endDate','typeValue','reason'];
   const missing = required.filter(f => !data[f] || (typeof data[f]==='string' && !data[f].trim()));
@@ -138,7 +138,7 @@ function validateForm(data) {
   return true;
 }
 
-// --- Fill Form ---
+
 function fillForm(request) {
   if (!request) return;
   document.getElementById("dateDebut").value = request.startDate || "";
@@ -151,7 +151,7 @@ function fillForm(request) {
   document.getElementById("commentaires").value = request.comment || "";
 }
 
-// --- Render Drafts ---
+
 function renderDrafts(container, userId) {
   if (!container || !userId) return;
 
@@ -184,7 +184,7 @@ function renderDrafts(container, userId) {
   `).join("");
 }
 
-// --- Render Recent Requests ---
+
 function renderRecentRequests(container, userId) {
   if (!container || !userId) return;
 
@@ -211,7 +211,7 @@ function renderRecentRequests(container, userId) {
   }).join("");
 }
 
-// --- Update Carousel & Shared Profile ---
+
 function updateCarouselContent(userId) {
   if (!userId) return;
   const slides = document.querySelectorAll("#formsCarousel .carousel-item");
@@ -225,7 +225,7 @@ function updateCarouselContent(userId) {
     else if (index===1) renderRecentRequests(container,userId);
   });
 
-  // Update profile and welcome card using shared.js
+
   const currentUser = shared.getUserById(currentUserId);
   if (currentUser) {
     shared.renderProfile(currentUser);
@@ -233,7 +233,7 @@ function updateCarouselContent(userId) {
   }
 }
 
-// --- Handle Carousel Click (edit/delete drafts) ---
+
 async function handleCarouselClick(e) {
   const editBtn = e.target.closest(".edit-draft-btn");
   const deleteBtn = e.target.closest(".delete-draft-btn");
@@ -265,13 +265,13 @@ async function handleCarouselClick(e) {
   }
 }
 
-// --- Initialize Form Buttons ---
+
 function initializeFormButtons(userId) {
   const submitBtn = document.querySelector('.btn-primary');
   const draftBtn = document.querySelector('.btn-outline-info');
   const resetBtn = document.querySelector('.btn-outline-secondary');
 
-  // Submit
+
   submitBtn?.addEventListener('click', async e=>{
     e.preventDefault();
     const data = getFormData();
@@ -294,7 +294,7 @@ function initializeFormButtons(userId) {
     }
   });
 
-  // Draft
+
   draftBtn?.addEventListener('click', async e=>{
     e.preventDefault();
     const data = getFormData();
@@ -314,7 +314,7 @@ function initializeFormButtons(userId) {
     }
   });
 
-  // Reset
+
   resetBtn?.addEventListener('click', e=>{
     if (!confirm("Réinitialiser le formulaire ?")) { e.preventDefault(); return; }
     shared.clearEditRequest?.();
@@ -322,10 +322,11 @@ function initializeFormButtons(userId) {
   });
 }
 
-// --- Auto-update duration ---
+
 document.getElementById("dateDebut")?.addEventListener("change", ()=>{
   document.getElementById("duree").value = calculateDuration(document.getElementById("dateDebut").value, document.getElementById("dateFin").value);
 });
 document.getElementById("dateFin")?.addEventListener("change", ()=>{
   document.getElementById("duree").value = calculateDuration(document.getElementById("dateDebut").value, document.getElementById("dateFin").value);
 });
+
