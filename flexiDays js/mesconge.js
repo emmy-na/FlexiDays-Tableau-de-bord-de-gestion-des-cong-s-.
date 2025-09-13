@@ -1,16 +1,14 @@
-// mesconge.js - version finale corrigée
 
-// Quand la page est chargée
 document.addEventListener("DOMContentLoaded", async () => {
   const userId = shared.getCurrentUserId() || "EMP001";
   await initMesCongesPage(userId);
 });
 
-// Initialisation principale
+
 async function initMesCongesPage(userId) {
   shared.setCurrentUserId(userId);
 
-  // Récupération des données depuis JSON Server
+ 
   const data = await shared.fetchData(
     { name: "UserIfon", url: "http://localhost:4000/UserIfon" },
     { name: "MyCongesPage", url: "http://localhost:4000/MyCongesPage" }
@@ -30,20 +28,18 @@ async function initMesCongesPage(userId) {
   shared.renderProfile(user);
   shared.renderWelcome(user);
 
-  // Affichage initial des cartes
+
   renderLeaveCards(userId, data);
 
-  // Setup des filtres et stats
+
   setupFilterButtons(userId, data);
   updateStatsSummary(userId, data);
 
-  // Event handler pour boutons Modifier / Annuler / Renouveler
+
   setupCardEvents(userId, data);
 }
 
-// -----------------------------------------
-// Stats résumé
-// -----------------------------------------
+
 function updateStatsSummary(userId, data) {
   const allRequests =
     (data.MyCongesPage?.leaveRequests?.[userId]) || [];
@@ -63,18 +59,14 @@ function updateStatsSummary(userId, data) {
   }
 }
 
-// -----------------------------------------
-// Affichage des cartes
-// -----------------------------------------
+
 function renderLeaveCards(userId, data) {
   const allRequests = data.MyCongesPage?.leaveRequests?.[userId] || [];
   const requests = allRequests.filter(r => r.status !== "draft");
   renderCards(requests, userId, data);
 }
 
-// -----------------------------------------
-// Setup des filtres
-// -----------------------------------------
+
 function setupFilterButtons(userId, data) {
   const buttons = document.querySelectorAll(".filter-btn");
   if (!buttons.length) return;
@@ -102,9 +94,7 @@ function applyFilter(filterText, userId, data) {
   renderCards(filtered, userId, data);
 }
 
-// -----------------------------------------
-// Calcul durée
-// -----------------------------------------
+
 function calculateDuration(startDate, endDate) {
   const start = new Date(startDate);
   const end = new Date(endDate);
@@ -113,9 +103,7 @@ function calculateDuration(startDate, endDate) {
   return Math.ceil(diffMs / (1000 * 60 * 60 * 24)) + 1;
 }
 
-// -----------------------------------------
-// Render HTML des cartes
-// -----------------------------------------
+
 function renderCards(requests, userId, data) {
   const container = document.querySelector(".cards-grid");
   if (!container) return;
@@ -162,9 +150,7 @@ function renderCards(requests, userId, data) {
   });
 }
 
-// -----------------------------------------
-// Boutons par carte
-// -----------------------------------------
+
 function getCardButtons(leave) {
   const id = leave.id;
   if (leave.status === "approved") {
@@ -179,9 +165,7 @@ function getCardButtons(leave) {
           <button class="btn btn-outline-main btn-contacter">Contacter RH</button>`;
 }
 
-// -----------------------------------------
-// Gestion des actions sur les cartes
-// -----------------------------------------
+
 function setupCardEvents(userId, data) {
   const container = document.querySelector(".cards-grid");
   if (!container) return;
@@ -219,3 +203,4 @@ function setupCardEvents(userId, data) {
     }
   });
 }
+
