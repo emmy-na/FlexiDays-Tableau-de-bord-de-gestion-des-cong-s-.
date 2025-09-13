@@ -1,5 +1,5 @@
 const shared = {
-  // Storage methods - using sessionStorage consistently
+
   setCurrentUserId(userId) {
     sessionStorage.setItem("currentUserId", userId);
   },
@@ -8,7 +8,7 @@ const shared = {
     return sessionStorage.getItem("currentUserId");
   },
 
-  // Check role access and redirect if needed
+
   checkAccess(userId) {
     const currentPage = window.location.pathname.split("/").pop().toLowerCase();
 
@@ -47,7 +47,7 @@ const shared = {
     sessionStorage.removeItem("editRequest");
   },
 
-  // Data fetching
+
   async fetchData(...endpoints) {
     try {
       const responses = await Promise.all(
@@ -63,13 +63,13 @@ const shared = {
     }
   },
 
-  // User utilities
+
   getUserById(userInfo, userId) {
     if (!userInfo || !userInfo.users) return null;
     return userInfo.users.find((user) => user.id === userId);
   },
 
-  // UI rendering utilities
+
   renderProfile(user) {
     if (!user) return;
 
@@ -97,7 +97,7 @@ const shared = {
     }
   },
 
-  // Initialize user interface - NEW FUNCTION
+
   async initializeUserInterface() {
     const userId = this.getCurrentUserId();
     if (!userId) {
@@ -130,7 +130,7 @@ const shared = {
     }
   },
 
-  // Render default user info when data loading fails
+
   renderDefaultUser() {
     const profileImages = document.querySelectorAll(
       ".profile-section img, .profile-mobile img"
@@ -154,7 +154,7 @@ const shared = {
     }
   },
 
-  // Date formatting
+
   formatDate(dateStr) {
     if (!dateStr) return "Date non disponible";
     try {
@@ -169,7 +169,7 @@ const shared = {
     }
   },
 
-  // Leave cards rendering (for mesconge.html)
+
   renderLeaveCards(userId, data) {
     const leaveRequests = data?.MyCongesPage?.leaveRequests?.[userId];
     const cardsContainer = document.querySelector(".cards-grid");
@@ -335,7 +335,7 @@ const shared = {
   },
 };
 
-// Initialize user selection on first page load
+
 document.addEventListener("DOMContentLoaded", async () => {
   let userId = shared.getCurrentUserId();
   if (!userId) {
@@ -345,14 +345,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     shared.setCurrentUserId(userId);
   }
 
-  // Check access every time
+
   shared.checkAccess(userId);
   
-  // Initialize user interface with profile and welcome data
+
   await shared.initializeUserInterface();
 });
 
-// Local storage helpers
+
 function getLeaveRequests(userId) {
   const requests = sessionStorage.getItem(`leaveRequests_${userId}`);
   return requests ? JSON.parse(requests) : [];
@@ -360,4 +360,5 @@ function getLeaveRequests(userId) {
 
 function saveLeaveRequests(userId, requests) {
   sessionStorage.setItem(`leaveRequests_${userId}`, JSON.stringify(requests));
+
 }
